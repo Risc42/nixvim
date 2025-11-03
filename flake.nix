@@ -1,5 +1,5 @@
 {
-  description = "deCort.tech NeoVim configuration";
+  description = "Nixvim config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

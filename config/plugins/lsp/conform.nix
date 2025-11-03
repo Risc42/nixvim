@@ -122,6 +122,9 @@
             "shfmt"
           ];
           json = [ "jq" ];
+          c = [ "clang-format" ];
+          h = [ "clang-format" ];
+          cpp = [ "clang-format" ];
           "_" = [ "trim_whitespace" ];
         };
 
@@ -158,6 +161,10 @@
           };
           bicep = {
             command = "${lib.getExe pkgs.bicep}";
+          };
+          clangd = {
+            command = "${lib.getExe pkgs.clang-tools}/bin/clang-format";
+            args = [ "--fallback-style=LLVM" ];
           };
           #yamlfmt = {
           #  command = "${lib.getExe pkgs.yamlfmt}";
