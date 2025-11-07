@@ -13,7 +13,8 @@
       ];
     };
   };
-  extraConfig = ''
+  extraConfigLua = ''
+    local clangd_ext = require("clangd_extensions")
     clangd_ext.setup({
         inlay_hints = {
           auto = true,
