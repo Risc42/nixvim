@@ -43,6 +43,7 @@
             name = "luasnip"; # snippets
             keywordLength = 3;
           }
+          { name = "L3MON4D3/LuaSnip"; }
         ];
 
         window = {
