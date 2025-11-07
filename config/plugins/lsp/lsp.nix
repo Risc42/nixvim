@@ -160,5 +160,24 @@
     require('lspconfig.ui.windows').default_options = {
       border = _border
     }
+
+    nvim_lsp.clangd.setup({
+        cmd = { "clangd", "--background-index", "--clang-tidy" },
+        filetypes = { "c", "cpp", "objc", "objcpp" },
+        root_dir = nvim_lsp.util.root_pattern("compile_commands.json", ".git"),
+        capabilities = vim.lsp.protocol.make_client_capabilities(),
+        on_attach = function(client, bufnr)
+        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+        local opts = { noremap=true, silent=true }
+
+        -- LSP keybindings
+        buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+        buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts) --TODO
+        buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+
+          -- Activate inlay hints automatically
+          clangd_ext.inlay_hints.setup_autocmd()
+        end,
+    })
   '';
 }
