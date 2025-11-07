@@ -59,10 +59,10 @@
           "<C-Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
           "<Down>" = "cmp.mapping.select_next_item()";
           "<Up>" = "cmp.mapping.select_prev_item()";
-          "<Space>" = "cmp.mapping.abort()";
+          "<C-Space>" = "cmp.mapping.abort()";
           "<C-b>" = "cmp.mapping.scroll_docs(-4)";
           "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          "<C-Space>" = "cmp.mapping.complete()";
+          "<S-Space>" = "cmp.mapping.complete()";
           "<CR>" = "cmp.mapping.confirm({ select = true })"; # old was <C-CR>
           "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
         };
