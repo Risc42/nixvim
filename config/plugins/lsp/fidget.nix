@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       logger = {
-        level = "warn"; # "off", "error", "warn", "info", "debug", "trace"
+        level = "debug"; # "off", "error", "warn", "info", "debug", "trace"
         float_precision = 1.0e-2; # Limit the number of decimals displayed for floats
       };
       progress = {
@@ -61,7 +61,7 @@
       };
       notification = {
         poll_rate = 10; # How frequently to update and render notifications
-        filter = "info"; # "off", "error", "warn", "info", "debug", "trace"
+        filter = "debug"; # "off", "error", "warn", "info", "debug", "trace"
         history_size = 128; # Number of removed messages to retain in history
         override_vim_notify = true;
         redirect = {
