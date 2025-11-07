@@ -161,6 +161,10 @@
       border = _border
     }
 
+
+    local nvim_lsp = require("lspconfig")
+    local clangd_ext = require("clangd_extensions")
+
     nvim_lsp.clangd.setup({
         cmd = { "clangd", "--background-index", "--clang-tidy" },
         filetypes = { "c", "cpp", "objc", "objcpp" },
