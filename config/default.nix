@@ -12,7 +12,7 @@ _: {
     # Completion
     ./plugins/cmp/cmp.nix
     #./plugins/cmp/cmp-copilot.nix
-    ./plugins/cmp/lspkind.nix
+    #./plugins/cmp/lspkind.nix
     ./plugins/cmp/autopairs.nix
     ./plugins/cmp/schemastore.nix
 
