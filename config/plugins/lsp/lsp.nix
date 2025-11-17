@@ -79,6 +79,7 @@
         clangd = {
           enable = true;
         };
+        qmlls.enable = true;
       };
 
       keymaps = {

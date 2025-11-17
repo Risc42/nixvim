@@ -125,6 +125,7 @@
           c = [ "clang-format" ];
           h = [ "clang-format" ];
           cpp = [ "clang-format" ];
+          qml = [ "qml-format" ];
           "_" = [ "trim_whitespace" ];
         };
 
@@ -166,6 +167,11 @@
             command = "${lib.getExe pkgs.clang-tools}/bin/clang-format";
             args = [ "--fallback-style=LLVM" ];
           };
+          /*
+            qml = {
+              command = "$lib.getExe pkgs.qt6.qtdeclarative.devTools"
+            };
+          */
           #yamlfmt = {
           #  command = "${lib.getExe pkgs.yamlfmt}";
           #};
