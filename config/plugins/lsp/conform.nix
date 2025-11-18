@@ -164,7 +164,7 @@
             command = "${lib.getExe pkgs.bicep}";
           };
           clangd = {
-            command = "${lib.getExe' pkgs.clang-tools "/bin/clang-format"}";
+            command = "${lib.getExe' pkgs.clang-tools "clang-format"}";
             args = [ "--fallback-style=LLVM" ];
           };
           /*
