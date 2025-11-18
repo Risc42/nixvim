@@ -10,6 +10,10 @@
     helm = {
       enable = true;
     };
+    coq-nvim = {
+      enable = true;
+      installArtifacts = true;
+    };
     lsp = {
       enable = true;
       inlayHints = true;
