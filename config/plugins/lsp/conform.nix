@@ -126,6 +126,8 @@
           h = [ "clang-format" ];
           cpp = [ "clang-format" ];
           qml = [ "qmlformat" ];
+          ocaml = [ "ocamlformat" ];
+          #coq ?
           "_" = [ "trim_whitespace" ];
         };
 
@@ -167,10 +169,13 @@
             command = "${lib.getExe' pkgs.clang-tools "clang-format"}";
             args = [ "--fallback-style=LLVM" ];
           };
-          
-qml = {
-            command = "${lib.getExe pkgs.libsForQt5.qt5.qtdeclarative}";
+          qml = {
+            command = "${lib.getExe' pkgs.libsForQt5.qt5.qtdeclarative "qmlformat"}";
           };
+          ocaml = {
+            command = "${lib.getExe pkgs.ocamlPackages.ocaml-lsp "ocamlformat"}";
+          };
+          }
           #yamlfmt = {
           #  command = "${lib.getExe pkgs.yamlfmt}";
           #};
