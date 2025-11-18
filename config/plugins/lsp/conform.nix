@@ -175,7 +175,7 @@
           ocaml = {
             command = "${lib.getExe pkgs.ocamlPackages.ocaml-lsp "ocamlformat"}";
           };
-          }
+          
           #yamlfmt = {
           #  command = "${lib.getExe pkgs.yamlfmt}";
           #};
