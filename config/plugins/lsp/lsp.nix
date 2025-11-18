@@ -81,7 +81,7 @@
         };
         qmlls.enable = true;
         #coq-lsp.enable = true;
-        ocaml-lsp.enable = true;
+        ocamllsp.enable = true;
       };
 
       keymaps = {
