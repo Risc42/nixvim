@@ -8,13 +8,6 @@
     ];
   */
 
-  # 2. Enable the nvim-lspconfig plugin module
-  plugins.lsp = {
-    enable = true;
-    # coq-lsp is not built into lspconfig, so we configure it manually
-    # in the extraConfigs block.
-  };
-
   # 3. Enable the dedicated client plugin for better goal display
   plugins.coq-lsp-nvim = {
     enable = true;
@@ -28,7 +21,15 @@
 
   # 4. Optional: Disable Coqtail to prevent conflict (if you enabled it earlier)
   #plugins.Coqtail.enable = false;
-
+  extraLuaConfig = ''
+    require('coq-lsp').setup({
+      keys = {
+        query = "<leader>cn",   -- Next sentence (Query current sentence)
+        query_back = "<leader>cp", -- Previous sentence
+        open_info_panel = "<leader>ci", -- Open goals window
+      },
+    })
+  '';
   # 5. Optional: Add Tree-sitter for better syntax highlighting
   plugins.treesitter.enable = true;
   plugins.treesitter.settings.ensureInstalled = [ "coq" ];
