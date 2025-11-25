@@ -39,6 +39,7 @@ _: {
     ./plugins/lsp/lsp.nix
     ./plugins/lsp/conform.nix
     ./plugins/lsp/fidget.nix
+    ./plugins/lsp/coqtail.nix
 
     # Git
     ./plugins/git/lazygit.nix
