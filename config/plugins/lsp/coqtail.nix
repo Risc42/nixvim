@@ -29,11 +29,41 @@
   plugins.treesitter.settings.ensureInstalled = [ "coq" ];
 
   # ... other configurations
+  /*
+    extraConfigLua = ''
+      require('coq-lsp').setup({
+        keys = {
+          query = "<leader>cn",   -- Next sentence (Query current sentence)
+          query_back = "<leader>cp", -- Previous sentence
+          open_info_panel = "<leader>ci", -- Open goals window
+        },
+      })
+    '';
+  */
   extraConfigLua = ''
-    require('coq-lsp').setup({
+    -- Require coq-lsp plugin
+    local coq_lsp = require("coq-lsp")
+
+    -- Patch Message to prevent Lua crash when msg is a table
+    local render = require("coq-lsp.render")
+    local orig_Message = render.Message
+    render.Message = function(msg)
+      if type(msg) ~= "string" then
+        -- Convert table to string safely
+        if vim.tbl_islist(msg) then
+          msg = table.concat(vim.tbl_map(tostring, msg), "\n")
+        else
+          msg = vim.inspect(msg)
+        end
+      end
+      return orig_Message(msg)
+    end
+
+    -- Setup Coq-LSP keys
+    coq_lsp.setup({
       keys = {
-        query = "<leader>cn",   -- Next sentence (Query current sentence)
-        query_back = "<leader>cp", -- Previous sentence
+        query = "<leader>cn",       -- Next sentence
+        query_back = "<leader>cp",  -- Previous sentence
         open_info_panel = "<leader>ci", -- Open goals window
       },
     })
