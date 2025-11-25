@@ -27,7 +27,7 @@
   plugins.treesitter.settings.ensureInstalled = [ "coq" ];
 
   # ... other configurations
-  extraLuaConfig = ''
+  extraConfigLua = ''
     require('coq-lsp').setup({
       keys = {
         query = "<leader>cn",   -- Next sentence (Query current sentence)
