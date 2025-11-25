@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   /*
     extraPackages = with pkgs; [
@@ -21,6 +22,11 @@
 
   # 4. Optional: Disable Coqtail to prevent conflict (if you enabled it earlier)
   #plugins.Coqtail.enable = false;
+  # 5. Optional: Add Tree-sitter for better syntax highlighting
+  plugins.treesitter.enable = true;
+  plugins.treesitter.settings.ensureInstalled = [ "coq" ];
+
+  # ... other configurations
   extraLuaConfig = ''
     require('coq-lsp').setup({
       keys = {
@@ -30,10 +36,4 @@
       },
     })
   '';
-  # 5. Optional: Add Tree-sitter for better syntax highlighting
-  plugins.treesitter.enable = true;
-  plugins.treesitter.settings.ensureInstalled = [ "coq" ];
-
-  # ... other configurations
-
 }
