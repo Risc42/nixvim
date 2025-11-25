@@ -10,15 +10,17 @@
   */
 
   # 3. Enable the dedicated client plugin for better goal display
-  plugins.coq-lsp-nvim = {
-    enable = true;
-    # This plugin handles goal display and other Coq/Rocq-specific interactions
-    # using the LSP data.
-    settings = {
-      # Optional: Set autostart to false if you want to use :CoqLsp or :LspStart
-      # autostart = false;
+  /*
+    plugins.coq-lsp-nvim = {
+      enable = true;
+      # This plugin handles goal display and other Coq/Rocq-specific interactions
+      # using the LSP data.
+      settings = {
+        # Optional: Set autostart to false if you want to use :CoqLsp or :LspStart
+        # autostart = false;
+      };
     };
-  };
+  */
 
   # 4. Optional: Disable Coqtail to prevent conflict (if you enabled it earlier)
   #plugins.Coqtail.enable = false;
